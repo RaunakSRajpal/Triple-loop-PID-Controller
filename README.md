@@ -15,15 +15,24 @@ Trapezoidal velocity profile (TVP) generation has been used for getting the __*s
 
 ![alt text](https://github.com/RaunakSRajpal/Triple-loop-PID-Controller/blob/main/img/TVP.png "Trapezoidal and Triangular velocity profiles")[^2]
 
->$$ t_{acc,∆} = \sqrt{θ_{max}/a} $$
+>$$ t_{acc,∆} = \sqrt{θ_{m}^{*}/a} $$
 >
 >$$ t_{acc,traz} = ω_{max}/a $$
 >
 >$$ T = t_{const} + t_{acc,traz} $$
 
-where, __a__ is the _maximum constant acceleration_, 
+where,
+
+$a$ is the _maximum constant acceleration_, $ω_{max}$ is the _maximum angular velocity_ during the profile, $θ_{m}^{*}$ is the _desired endpoint angle_, $t_{acc,∆}$ and $t_{acc,traz}$ are the _time of constant acceleration_ for triangular and trapezoidal profils respectively, and $t_{const}$ is the _time of constant velocity_.
 
 ## Results
+The following _angular speed_ response is observed from the system. The blue plot indicates the *desired values* and the red plot indicate the *physical values*. The two horizontal extreme lines reprent the maximum possible values of the angular velocity. The ripples produced are within a 5% error margin.
+
+![alt text](https://github.com/RaunakSRajpal/Triple-loop-PID-Controller/blob/main/img/response%20curve.png "Angular Speed response curve under the control law")
+
+The _angle_ response was quite unsatisfactory. Since the system is highly jittery and the encoder cpr (counts per revolution) very low (4x4 = 16), the control response only makes the system more unstable.
+
+![alt text](https://github.com/RaunakSRajpal/Triple-loop-PID-Controller/blob/main/img/angle%20response.png "Angle response curve under the control law")
 
 ## References:
 [^1]: Zhao, Z.T., 2013. Motor Control Application Based on STM32 and PID Control Theory. AMM 385–386, 867–871. https://doi.org/10.4028/www.scientific.net/amm.385-386.867
